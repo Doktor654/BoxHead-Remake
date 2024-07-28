@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ol6e5ry101nu"]
 
-[ext_resource type="Script" path="res://scripts/Vapen/Ammo/Big_bullet.gd" id="1_m81yt"]
+[ext_resource type="Script" path="res://scener/Vapen/Ammo/shotgun_bullet1.gd" id="1_nl4ov"]
 [ext_resource type="Texture2D" uid="uid://01hryy4o0kt" path="res://textures/Vapen/ammo/Shotgun_bullet.png" id="2_40rha"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3044s"]
@@ -10,36 +10,6 @@ radius = 3.0
 properties/0/path = NodePath(".:rotation")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-
-[sub_resource type="Animation" id="Animation_k577d"]
-resource_name = "destroy"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_bym86"]
 length = 0.001
@@ -56,6 +26,36 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_k577d"]
+resource_name = "destroy"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1jdai"]
 _data = {
 "RESET": SubResource("Animation_bym86"),
@@ -65,7 +65,7 @@ _data = {
 [node name="ShotgunBullet" type="Area2D"]
 collision_layer = 2
 collision_mask = 28
-script = ExtResource("1_m81yt")
+script = ExtResource("1_nl4ov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

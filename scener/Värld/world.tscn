@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c67sfpm4a2mwt"]
+[gd_scene load_steps=12 format=3 uid="uid://c67sfpm4a2mwt"]
 
 [ext_resource type="Script" path="res://scener/Värld/SceneManager.gd" id="1_oyk8v"]
 [ext_resource type="PackedScene" uid="uid://xebr12j4w6cg" path="res://scener/Gubbe/gubbe.tscn" id="2_smsqv"]
@@ -19,6 +19,8 @@ background_mode = 3
 glow_enabled = true
 glow_blend_mode = 1
 glow_hdr_threshold = 0.1
+
+[sub_resource type="TileSet" id="TileSet_hbig6"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -111,3 +113,7 @@ color = Color(0.139386, 0.192625, 0.323589, 1)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(762, 422)
 texture = ExtResource("7_03vh5")
+
+[node name="Main Map" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hbig6")
+format = 2

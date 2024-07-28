@@ -44,8 +44,12 @@ func _physics_process(delta):
 			
 			if(Global.player.position.x - position.x) < 0:
 				$Sprite2D.flip_h = true
+				$Eye1.position = Vector2(-8.75, -33.75)
+				$Eye2.position = Vector2(2.5, -33.75)
 			else:
 				$Sprite2D.flip_h = false
+				$Eye1.position = Vector2(-2.5, -33.75)
+				$Eye2.position = Vector2(8.75, -33.75)
 	elif Global.mode == 1:
 		var players = get_parent().get_parent().get_node("Players").get_children()
 		if player_chase:
@@ -68,9 +72,12 @@ func _physics_process(delta):
 			
 			if(closest_player.position.x - position.x) < 0:
 				scale.x = 1
+				$Eye1.position = Vector2(-2.5, -33.75)
+				$Eye2.position = Vector2(8.75, -33.75)
 			else:
 				scale.x = -1
-	
+				$Eye1.position = Vector2(-8.75, -33.75)
+				$Eye2.position = Vector2(-2.5, -33.75)
 func _process(delta):
 	$Test_HP.text = str(hp)
 	if can_attack:

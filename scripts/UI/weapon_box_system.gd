@@ -48,6 +48,8 @@ func create_item(item_type_key):
 	img.texture = item_list.get(item_type_key)[img_texture]
 	texture_rects.append(img)
 	item_container.add_child(img)
+	
+	
 
 
 func _on_timer_timeout():
