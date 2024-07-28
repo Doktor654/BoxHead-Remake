@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf253psxnmqy6"]
+
+[ext_resource type="Script" path="res://scripts/Vapen/Ammo/Sniper_bullet.gd" id="1_twu4m"]
+[ext_resource type="Texture2D" uid="uid://dqauaim2qh2eb" path="res://textures/Vapen/ammo/Sniper_BUllet.png" id="2_0f04k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgc2i"]
+size = Vector2(22, 5)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rfs2l"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="SniperBullet" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 28
+script = ExtResource("1_twu4m")
+speed = 735
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0f04k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hgc2i")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_rfs2l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

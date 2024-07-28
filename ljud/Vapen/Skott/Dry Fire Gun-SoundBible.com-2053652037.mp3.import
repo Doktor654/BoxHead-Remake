@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://imtikdk6jo00"
+path="res://.godot/imported/Dry Fire Gun-SoundBible.com-2053652037.mp3-028a565bf1043b7dad60e4bf08b28520.mp3str"
+
+[deps]
+
+source_file="res://ljud/Vapen/Skott/Dry Fire Gun-SoundBible.com-2053652037.mp3"
+dest_files=["res://.godot/imported/Dry Fire Gun-SoundBible.com-2053652037.mp3-028a565bf1043b7dad60e4bf08b28520.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8u074nhch3qs"]
+
+[ext_resource type="Texture2D" uid="uid://b78edfl00xed3" path="res://textures/Vapen/Flamethrower.png" id="1_8qh3y"]
+[ext_resource type="Script" path="res://scener/Vapen/flame_thrower.gd" id="1_u83li"]
+[ext_resource type="Texture2D" uid="uid://dnb30rcaeo2mn" path="res://textures/Random/blood_particle.png" id="2_t7yg8"]
+[ext_resource type="AudioStream" uid="uid://dei1igmgrhvy3" path="res://ljud/Vapen/Skott/magnumopus.mp3" id="4_4m1o5"]
+
+[sub_resource type="Gradient" id="Gradient_hfnbl"]
+offsets = PackedFloat32Array(0, 0.125984, 0.771654, 0.913386, 0.968504)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.423529, 1, 0.821846, 0.0670271, 0.0719467, 1, 0.800875, 0.249685, 0, 1, 0.961518, 4.45209e-06, 9.62615e-07, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25vkx"]
+radius = 8.69227
+
+[node name="FlameThrower" type="StaticBody2D"]
+script = ExtResource("1_u83li")
+max_ammo = 100
+dmg = 25
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(26.6667, -5.33333)
+amount = 64
+lifetime = 0.5
+texture = ExtResource("2_t7yg8")
+spread = 20.18
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 103.45
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_hfnbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -5)
+texture = ExtResource("1_8qh3y")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(53.3333, -2.33333)
+
+[node name="FireArea" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_layer = 2
+collision_mask = 28
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireArea"]
+position = Vector2(23.3333, -1.33333)
+shape = SubResource("CircleShape2D_25vkx")
+
+[node name="Flames" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4m1o5")
+volume_db = -5.0
+
+[connection signal="body_entered" from="FireArea" to="." method="_on_fire_area_body_entered"]
+[connection signal="body_exited" from="FireArea" to="." method="_on_fire_area_body_exited"]

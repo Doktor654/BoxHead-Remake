@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg2pyp3tev3sp"]
+
+[ext_resource type="AudioStream" uid="uid://ma4b0y22vgpc" path="res://ljud/Vapen/Skott/213378-Rifle-M1Garand-30-06-Medium-08.wav" id="1_7jnuo"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_nwvf4"]
+
+[node name="Draco_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_7jnuo")
+script = ExtResource("2_nwvf4")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

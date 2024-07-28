@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c83l7kgol58yi"]
+
+[ext_resource type="AudioStream" uid="uid://gbqub6hahrca" path="res://ljud/Vapen/Skott/silenced-gunshot-81063.mp3" id="1_c03xi"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_f05lx"]
+
+[node name="Silenced_Pistol_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c03xi")
+volume_db = -17.235
+script = ExtResource("2_f05lx")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

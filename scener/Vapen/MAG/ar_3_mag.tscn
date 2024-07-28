@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://0d3qmx1uj77m"]
+
+[ext_resource type="Texture2D" uid="uid://cbqm8x06y0y7a" path="res://textures/Vapen/Mag/AR3_MAG.png" id="1_w0dqp"]
+[ext_resource type="Script" path="res://scripts/Vapen/MAG/ar_3_mag.gd" id="2_atgj7"]
+
+[sub_resource type="Animation" id="Animation_1lc1t"]
+resource_name = "fade_away"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ww62i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2j5k6"]
+_data = {
+"RESET": SubResource("Animation_ww62i"),
+"fade_away": SubResource("Animation_1lc1t")
+}
+
+[node name="AR3_MAG" type="Sprite2D"]
+texture = ExtResource("1_w0dqp")
+script = ExtResource("2_atgj7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2j5k6")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

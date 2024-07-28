@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4mt46xsgjuu3"]
+
+[node name="Zombie1_spawn_node" type="Node2D"]
+
+[node name="ZombieSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scener/Enemies/zombie_1.tscn")

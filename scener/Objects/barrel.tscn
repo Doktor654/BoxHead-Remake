@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyx553dkhhugx"]
+
+[ext_resource type="Script" path="res://scripts/Objekt/barrel.gd" id="1_u4cc4"]
+[ext_resource type="Texture2D" uid="uid://b2sxjnmok7c06" path="res://textures/Random/shadow.png" id="2_5q1ki"]
+[ext_resource type="Texture2D" uid="uid://c74qdnlntvsdv" path="res://textures/Objects/Barrowl_Half_Bright.png" id="2_i8m2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lj7xb"]
+size = Vector2(41, 51)
+
+[node name="Barrel" type="StaticBody2D"]
+z_index = 1
+scale = Vector2(0.6, 0.6)
+collision_layer = 16
+collision_mask = 7
+script = ExtResource("1_u4cc4")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.584314)
+position = Vector2(0, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5q1ki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_i8m2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_lj7xb")

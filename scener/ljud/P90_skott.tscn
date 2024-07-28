@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm31qslv5bfvh"]
+
+[ext_resource type="AudioStream" uid="uid://bjoe36s8tquc8" path="res://ljud/Vapen/Skott/104266-FN_P90_submachine_gun_single_shot_close_perspective_01-SFXBible-ss06884.wav" id="1_umm07"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_ju02w"]
+
+[node name="Draco_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_umm07")
+script = ExtResource("2_ju02w")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

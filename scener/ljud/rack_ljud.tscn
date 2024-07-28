@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwo4rqpgnmhm3"]
+
+[ext_resource type="AudioStream" uid="uid://eagjldk4rv5p" path="res://ljud/Vapen/Andra vapen ljud/165785-GLOCK_35_-fast_slide_rack_1.wav" id="1_52pk3"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_s4i6f"]
+
+[node name="empty_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_52pk3")
+script = ExtResource("2_s4i6f")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

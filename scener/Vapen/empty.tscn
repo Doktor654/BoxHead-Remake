@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c2kgvdxrxld5g"]
+
+[node name="Empty" type="StaticBody2D" groups=["Empty"]]

@@ -1,0 +1,201 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvptgvxwrawgt"]
+
+[ext_resource type="Script" path="res://scener/Vapen/shotgun_1.gd" id="1_dwoe2"]
+[ext_resource type="Texture2D" uid="uid://col2svo52ehj" path="res://textures/Vapen/Shotgun_Gray.png" id="1_wg3mr"]
+[ext_resource type="PackedScene" uid="uid://ol6e5ry101nu" path="res://scener/Vapen/Ammo/shotgun_bullet1.tscn" id="2_xc31c"]
+[ext_resource type="Texture2D" uid="uid://b62ibtepman1" path="res://textures/Vapen/Annat/muzzel_shot.png" id="4_xl4ug"]
+
+[sub_resource type="Animation" id="Animation_8mgj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.326377]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Muzzle1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Muzzle1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Muzzle2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Muzzle2:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yryuj"]
+resource_name = "Recoil"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.326377, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Muzzle1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Muzzle1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_8htrx"]
+resource_name = "Recoil2"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.326377, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Muzzle2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Muzzle2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.07, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsspn"]
+_data = {
+"RESET": SubResource("Animation_8mgj7"),
+"Recoil": SubResource("Animation_yryuj"),
+"Recoil2": SubResource("Animation_8htrx")
+}
+
+[node name="Shotgun1" type="StaticBody2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_dwoe2")
+kulan = ExtResource("2_xc31c")
+bull_amount = 5
+max_ammo = 2
+dmg = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+rotation = -0.326377
+texture = ExtResource("1_wg3mr")
+
+[node name="Marker1" type="Marker2D" parent="Sprite2D"]
+position = Vector2(24, -2.5)
+
+[node name="Marker2" type="Marker2D" parent="Sprite2D"]
+position = Vector2(24, 3.5)
+
+[node name="Muzzle1" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(30.3333, -6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_xl4ug")
+hframes = 4
+
+[node name="Muzzle2" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(30.3333, 4.76837e-07)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_xl4ug")
+hframes = 4
+
+[node name="ShotgunAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bsspn")
+}
+
+[node name="Bull_spawn" type="Marker2D" parent="."]
+position = Vector2(1, -5)
+
+[connection signal="animation_finished" from="ShotgunAnim" to="." method="_on_shotgun_anim_animation_finished"]

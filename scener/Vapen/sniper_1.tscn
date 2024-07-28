@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://xylle1acytxj"]
+
+[ext_resource type="Script" path="res://scripts/Vapen/sniper_1.gd" id="1_7peim"]
+[ext_resource type="Texture2D" uid="uid://c5sgj45hrwaie" path="res://textures/Vapen/Sniper1.png" id="1_ucqms"]
+[ext_resource type="PackedScene" uid="uid://cf253psxnmqy6" path="res://scener/Vapen/Ammo/Sniper_bullet.tscn" id="2_7sx4c"]
+
+[sub_resource type="Animation" id="Animation_y6tu0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0sjso"]
+resource_name = "Recoil"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.326377, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a55ug"]
+resource_name = "Reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.63188, -1.63188, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmoou"]
+_data = {
+"RESET": SubResource("Animation_y6tu0"),
+"Recoil": SubResource("Animation_0sjso"),
+"Reload": SubResource("Animation_a55ug")
+}
+
+[node name="Sniper1" type="StaticBody2D"]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_7peim")
+kulan = ExtResource("2_7sx4c")
+max_ammo = 1
+dmg = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ucqms")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(23, -1)
+
+[node name="SniperAnims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cmoou")
+}
+
+[node name="Bull_spawn" type="Marker2D" parent="."]
+position = Vector2(-2.66667, -2)
+
+[connection signal="animation_finished" from="SniperAnims" to="." method="_on_sniper_anims_animation_finished"]

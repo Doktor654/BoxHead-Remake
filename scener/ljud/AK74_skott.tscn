@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06f5dr8k6h0q"]
+
+[ext_resource type="AudioStream" uid="uid://r2rtf2hmlmpx" path="res://ljud/Vapen/Skott/337908-Machine_gun_-AK-47_-single_shot_1.wav" id="1_nvbmh"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_ifbjn"]
+
+[node name="Draco_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_nvbmh")
+script = ExtResource("2_ifbjn")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

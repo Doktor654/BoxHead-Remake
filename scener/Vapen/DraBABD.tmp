@@ -1,0 +1,291 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2er6m23kn1tq"]
+
+[ext_resource type="Script" path="res://scripts/Vapen/Draco.gd" id="1_0ypt4"]
+[ext_resource type="PackedScene" uid="uid://g1iw7ccerc4k" path="res://scener/Vapen/Ammo/Big_bullet.tscn" id="2_ggndl"]
+[ext_resource type="Texture2D" uid="uid://c602gu86uon6u" path="res://textures/Vapen/AR3.png" id="3_b2nfj"]
+[ext_resource type="Texture2D" uid="uid://s2gl4ch7ntlr" path="res://textures/Vapen/Accesories/silencer_1.png" id="4_apdjg"]
+[ext_resource type="Texture2D" uid="uid://wtlf0skkttx7" path="res://textures/Vapen/Accesories/muzzle_boost1.png" id="5_5kevo"]
+
+[sub_resource type="Animation" id="Animation_ii6n2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Accessories:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mag:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.345, 4.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mag:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_y2guo"]
+resource_name = "Recoil"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.137881, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Accessories:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.137881, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.05, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_vhny5"]
+resource_name = "Reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Accessories:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jqr4h"]
+resource_name = "empty"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_g0wmx"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6.345, 4.6), Vector2(6.345, 7.08), Vector2(6.345, 12), Vector2(6.345, 22), Vector2(6.345, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mag:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.13439, -0.404916, -0.539307, -1.08036]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove_mag"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y44qe"]
+_data = {
+"RESET": SubResource("Animation_ii6n2"),
+"Recoil": SubResource("Animation_y2guo"),
+"Reload": SubResource("Animation_vhny5"),
+"empty": SubResource("Animation_jqr4h"),
+"reload": SubResource("Animation_g0wmx")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gpfgg"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = false
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:is_reloading")
+properties/1/spawn = false
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Sprite2D:rotation")
+properties/2/spawn = false
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Sprite2D:scale")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Sprite2D/Marker2D:position")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:position")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("AnimationPlayer:current_animation")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath("Bull_spawn:position")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+
+[node name="AR" type="StaticBody2D"]
+script = ExtResource("1_0ypt4")
+kulan = ExtResource("2_ggndl")
+max_ammo = 30
+dmg = 25
+auto = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.33333, -1.33333)
+texture = ExtResource("3_b2nfj")
+offset = Vector2(-1, -3)
+hframes = 3
+vframes = 2
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(28.6667, -2.66667)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(3.66667, -3.33333)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y44qe")
+}
+
+[node name="Accessories" type="Node2D" parent="."]
+position = Vector2(5.66667, -0.333333)
+
+[node name="Silencer" type="Sprite2D" parent="Accessories"]
+visible = false
+position = Vector2(28.3333, -3.66667)
+texture = ExtResource("4_apdjg")
+
+[node name="Muzzle_boost" type="Sprite2D" parent="Accessories"]
+position = Vector2(27, -4)
+texture = ExtResource("5_5kevo")
+
+[node name="Bull_spawn" type="Marker2D" parent="."]
+position = Vector2(5, -5)
+
+[node name="Mag" type="Node2D" parent="."]
+position = Vector2(6.345, 4.6)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_gpfgg")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

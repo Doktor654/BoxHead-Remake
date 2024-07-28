@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0mbiod0rusrw"]
+
+[ext_resource type="Texture2D" uid="uid://01hryy4o0kt" path="res://textures/Vapen/ammo/shotgun_bullet.png" id="1_0pk08"]
+[ext_resource type="Script" path="res://scripts/Vapen/Ammo/shotgun_bullet.gd" id="1_hb03b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgc2i"]
+size = Vector2(4, 4)
+
+[node name="ShotgunBullet" type="Area2D"]
+script = ExtResource("1_hb03b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0pk08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hgc2i")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://blv8dej3ql8qy"]
+
+[ext_resource type="AudioStream" uid="uid://cxbdk1goq16to" path="res://ljud/Vapen/Skott/revvySound.mp3" id="1_c3b3u"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_7qwpg"]
+
+[node name="Small_revo_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c3b3u")
+volume_db = 10.0
+script = ExtResource("2_7qwpg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

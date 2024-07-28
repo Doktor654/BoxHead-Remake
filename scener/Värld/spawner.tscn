@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjcp212osqofg"]
+
+[ext_resource type="Script" path="res://scripts/Värld/Spawner.gd" id="1_4mk5l"]
+[ext_resource type="PackedScene" uid="uid://boy76vy0ij3uv" path="res://scener/Gubbe/SpawnPos.tscn" id="2_m21ql"]
+[ext_resource type="AudioStream" uid="uid://blptmj8xphhkd" path="res://ljud/Random/ticking-clock_1-27477.mp3" id="3_rurdt"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_omvuh"]
+properties/0/path = NodePath(".:spawn_pos_x")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:spawn_pos_y")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_4mk5l")
+spawner = ExtResource("2_m21ql")
+
+[node name="ZombieSpawnTimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="ExploZombieTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_omvuh")
+
+[node name="ZombieSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scener/Enemies/zombie_1.tscn", "res://scener/Enemies/zombie_2.tscn")
+
+[node name="Pause_ticking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rurdt")
+
+[connection signal="timeout" from="ZombieSpawnTimer" to="." method="_on_zombie_spawn_timer_timeout"]
+[connection signal="timeout" from="ExploZombieTimer" to="." method="_on_explo_zombie_timer_timeout"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]

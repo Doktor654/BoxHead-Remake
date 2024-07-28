@@ -1,0 +1,452 @@
+[gd_scene load_steps=26 format=3 uid="uid://hlebnad4n0pl"]
+
+[ext_resource type="Script" path="res://scripts/UI/shop_ui.gd" id="1_0cx20"]
+[ext_resource type="Texture2D" uid="uid://d377sg3cnf56m" path="res://textures/UI/shop_bakgrund.png" id="1_fhprn"]
+[ext_resource type="Texture2D" uid="uid://bia4oepl8ku7l" path="res://textures/UI/item_frame.png" id="3_syqw3"]
+[ext_resource type="Texture2D" uid="uid://b0b2nskyp8xju" path="res://textures/Vapen/Garand.png" id="4_1y87g"]
+[ext_resource type="FontFile" uid="uid://df3rok07h3s17" path="res://Fonts/Madoc-2vgXW.otf" id="5_bx186"]
+[ext_resource type="Texture2D" uid="uid://bi5jm6c1ffh8i" path="res://textures/Vapen/Glock.png" id="6_8gljy"]
+[ext_resource type="Texture2D" uid="uid://c602gu86uon6u" path="res://textures/Vapen/AR3.png" id="7_1h74c"]
+[ext_resource type="Texture2D" uid="uid://c8pk6dyvs3mpl" path="res://textures/Vapen/AK-74.png" id="8_afki3"]
+[ext_resource type="Texture2D" uid="uid://bo85rsmlcnxf7" path="res://textures/Vapen/makarov.png" id="9_6sqhl"]
+[ext_resource type="Texture2D" uid="uid://bkq7fkvlfsf3o" path="res://textures/Vapen/p90n.png" id="10_ubleb"]
+[ext_resource type="Shader" path="res://scener/UI/test_shader.gdshader" id="10_ujyhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nytse"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="Animation" id="Animation_yq2l0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(127, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_31ujf"]
+resource_name = "hover"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(127, 128), Vector2(127, 110.815), Vector2(127, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r53fn"]
+_data = {
+"RESET": SubResource("Animation_yq2l0"),
+"hover": SubResource("Animation_31ujf")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8b8h"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n73le"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7it0v"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6lpp"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvfrh"]
+shader = ExtResource("10_ujyhi")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/highlight_speed = 2.0
+shader_parameter/highlight_width = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4apel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aoste"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtexh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m52sp"]
+
+[node name="ShopUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0cx20")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -405.0
+offset_right = 720.0
+offset_bottom = 405.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+texture = ExtResource("1_fhprn")
+centered = false
+hframes = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 128.0
+offset_right = 1394.0
+offset_bottom = 766.0
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 4
+
+[node name="butt1" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt1"]
+material = SubResource("ShaderMaterial_nytse")
+position = Vector2(127, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("4_1y87g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt1/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt1"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button1" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt1"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 189.0
+offset_right = 166.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt2" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt2"]
+material = SubResource("ShaderMaterial_v8b8h")
+position = Vector2(127, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("6_8gljy")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt2/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt2"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt2"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 189.0
+offset_right = 166.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt3" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt3"]
+material = SubResource("ShaderMaterial_n73le")
+position = Vector2(127, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("7_1h74c")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt3/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt3"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt3"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 189.0
+offset_right = 166.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt4" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt4"]
+material = SubResource("ShaderMaterial_7it0v")
+position = Vector2(127, 128)
+scale = Vector2(3, 3)
+texture = ExtResource("8_afki3")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt4/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt4"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt4"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 191.0
+offset_right = 158.0
+offset_bottom = 241.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt5" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt5"]
+material = SubResource("ShaderMaterial_t6lpp")
+position = Vector2(127, 128)
+scale = Vector2(3, 3)
+texture = ExtResource("9_6sqhl")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt5/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt5"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt5"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 189.0
+offset_right = 163.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt6" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt6"]
+material = SubResource("ShaderMaterial_fvfrh")
+position = Vector2(127, 128)
+scale = Vector2(3, 3)
+texture = ExtResource("10_ubleb")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt6/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt6"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button6" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt6"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 189.0
+offset_right = 163.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="butt7" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_syqw3")
+
+[node name="Vapen" type="Sprite2D" parent="TextureRect/ScrollContainer/GridContainer/butt7"]
+material = SubResource("ShaderMaterial_fvfrh")
+position = Vector2(127, 128)
+scale = Vector2(4, 4)
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/ScrollContainer/GridContainer/butt7/Vapen"]
+libraries = {
+"": SubResource("AnimationLibrary_r53fn")
+}
+
+[node name="Price" type="Label" parent="TextureRect/ScrollContainer/GridContainer/butt7"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 33.0
+offset_right = 178.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_bx186")
+theme_override_font_sizes/font_size = 36
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button7" type="Button" parent="TextureRect/ScrollContainer/GridContainer/butt7"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 189.0
+offset_right = 163.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="Page" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 7.0
+offset_right = 492.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdfjf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4apel")
+flat = true
+
+[node name="Page2" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 7.0
+offset_right = 702.0
+offset_bottom = 42.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aoste")
+flat = true
+
+[node name="Page3" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 7.0
+offset_right = 912.0
+offset_bottom = 42.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jtexh")
+flat = true
+
+[node name="Page4" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 947.0
+offset_top = 7.0
+offset_right = 1122.0
+offset_bottom = 42.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m52sp")
+flat = true
+
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt6/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="TextureRect/ScrollContainer/GridContainer/butt7/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="TextureRect/Page" to="." method="_on_page_pressed"]
+[connection signal="pressed" from="TextureRect/Page2" to="." method="_on_page_2_pressed"]
+[connection signal="pressed" from="TextureRect/Page3" to="." method="_on_page_3_pressed"]
+[connection signal="pressed" from="TextureRect/Page4" to="." method="_on_page_4_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://e7qrax4c52no"]
+
+[ext_resource type="AudioStream" uid="uid://ckkjq5edhf2i2" path="res://ljud/barrel_sounds/esm_8bit_explosion_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.mp3" id="1_bbbek"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_k0udb"]
+
+[node name="Explosion" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_bbbek")
+script = ExtResource("2_k0udb")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

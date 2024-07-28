@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://boy76vy0ij3uv"]
+
+[ext_resource type="Script" path="res://scripts/Gubbe/Path2D.gd" id="1_7ksss"]
+
+[sub_resource type="Curve2D" id="Curve2D_10lnt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 899, -177, 0, 0, 0, 0, -164, -166, 0, 0, 0, 0, -179, 564, 0, 0, 0, 0, 899, 561, 0, 0, 0, 0, 902, -185)
+}
+point_count = 5
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_10lnt")
+script = ExtResource("1_7ksss")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(902, -185)
+rotation = -1.56677
+progress = 3889.35
+
+[node name="Marker2D" type="Marker2D" parent="PathFollow2D"]
+
+[node name="Zombie1SpawnTimer" type="Timer" parent="PathFollow2D"]
+wait_time = 2.0
+autostart = true
+
+[node name="Zombie2SpawnTimer" type="Timer" parent="PathFollow2D"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="PathFollow2D/Zombie1SpawnTimer" to="." method="_on_zombie_1_spawn_timer_timeout"]
+[connection signal="timeout" from="PathFollow2D/Zombie2SpawnTimer" to="." method="_on_zombie_2_spawn_timer_timeout"]
+[connection signal="timeout" from="PathFollow2D/Zombie2SpawnTimer" to="." method="_on_zombie_1_spawn_timer_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://g1iw7ccerc4k"]
+
+[ext_resource type="Script" path="res://scripts/Vapen/Ammo/Big_bullet.gd" id="1_0lr7u"]
+[ext_resource type="Texture2D" uid="uid://ce5nhobcusmhm" path="res://textures/Vapen/ammo/big_ammo.png" id="2_0tkjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgc2i"]
+size = Vector2(6, 2)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rfs2l"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="BigBullet" type="Area2D"]
+collision_layer = 2
+collision_mask = 28
+script = ExtResource("1_0lr7u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0tkjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hgc2i")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_rfs2l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

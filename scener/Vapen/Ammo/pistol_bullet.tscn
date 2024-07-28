@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhqu57amg1o88"]
+
+[ext_resource type="Script" path="res://scripts/Vapen/Ammo/pistol_bullet.gd" id="1_cn1ro"]
+[ext_resource type="Texture2D" uid="uid://b32eml5t1g7fe" path="res://textures/Vapen/ammo/pistol_bullet.png" id="2_h0xvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgc2i"]
+size = Vector2(4, 2)
+
+[node name="PistolBullet" type="Area2D"]
+collision_layer = 2
+collision_mask = 28
+script = ExtResource("1_cn1ro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h0xvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hgc2i")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

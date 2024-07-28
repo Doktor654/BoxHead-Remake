@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqt8j107n0qnd"]
+
+[ext_resource type="AudioStream" uid="uid://cmi0wj08rjgtl" path="res://ljud/Vapen/Skott/makarov-shoot-36241.mp3" id="1_2wh55"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_fxcdj"]
+
+[node name="Makarov_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_2wh55")
+volume_db = -5.517
+script = ExtResource("2_fxcdj")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbi6lbq8auk3r"]
+
+[ext_resource type="AudioStream" uid="uid://imtikdk6jo00" path="res://ljud/Vapen/Skott/Dry Fire Gun-SoundBible.com-2053652037.mp3" id="1_l3ysv"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_t4r7y"]
+
+[node name="empty_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_l3ysv")
+script = ExtResource("2_t4r7y")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

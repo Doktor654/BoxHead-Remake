@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp2roecjdqj4l"]
+
+[ext_resource type="AudioStream" uid="uid://corqsdy3wwtd3" path="res://ljud/Vapen/Skott/236972-Remington_700_-Single_Shot_-Interior-05.wav" id="1_0vwpl"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_vx4au"]
+
+[node name="Tommy_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_0vwpl")
+script = ExtResource("2_vx4au")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

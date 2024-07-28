@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf237ji45iqu1"]
+
+[ext_resource type="AudioStream" uid="uid://ce0p3ue5p0aro" path="res://ljud/Vapen/Skott/ak.mp3" id="1_rnmrb"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_5utaf"]
+
+[node name="Draco_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rnmrb")
+volume_db = 10.0
+script = ExtResource("2_5utaf")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmh1xsys40kvq"]
+
+[ext_resource type="Script" path="res://scripts/UI/weapon_box_system.gd" id="1_g7b8b"]
+[ext_resource type="Texture2D" uid="uid://djt674dof0pf3" path="res://textures/PlaceHolder/roller.png" id="2_ip0g6"]
+
+[node name="WeaponBoxSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7b8b")
+
+[node name="BoxScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="ItemContainer" type="HBoxContainer" parent="BoxScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Item Cursor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -129.0
+offset_right = 125.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_ip0g6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.09
+autostart = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -200.0
+offset_right = 4.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 33
+text = "Take Weapon"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -126.0
+offset_right = 130.0
+offset_bottom = 124.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

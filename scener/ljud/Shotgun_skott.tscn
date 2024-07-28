@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgv6m6hi5ngd5"]
+
+[ext_resource type="AudioStream" uid="uid://clqhxciyhfq64" path="res://ljud/Vapen/Skott/Shotgun shot sound effect.mp3" id="1_sndoq"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_se7x0"]
+
+[node name="Shotgun_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_sndoq")
+volume_db = -10.0
+script = ExtResource("2_se7x0")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

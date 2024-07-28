@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=3 uid="uid://biust0tcbk3no"]
+
+[ext_resource type="FontFile" uid="uid://ea4d0b7u7t2k" path="res://Fonts/kongtext.ttf" id="1_68nxo"]
+[ext_resource type="Script" path="res://scripts/MultiPlayer/MultiplayerController.gd" id="2_huk6i"]
+[ext_resource type="Script" path="res://scripts/UI/ServerBrowser.gd" id="3_kuga6"]
+[ext_resource type="Texture2D" uid="uid://bh6t6dvuial43" path="res://textures/background_boxHead.png" id="3_rxbt5"]
+[ext_resource type="PackedScene" uid="uid://ciwu7sxu440ij" path="res://scener/UI/server_info.tscn" id="5_66t2o"]
+
+[sub_resource type="Theme" id="Theme_8ard7"]
+default_font = ExtResource("1_68nxo")
+Button/font_sizes/font_size = 36
+
+[sub_resource type="Theme" id="Theme_c8fj3"]
+Label/constants/line_spacing = 3
+Label/font_sizes/font_size = 14
+
+[node name="MultiPlayer_lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8ard7")
+script = ExtResource("2_huk6i")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_rxbt5")
+centered = false
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 74.0
+offset_right = 166.0
+offset_bottom = 119.0
+text = "Host"
+
+[node name="Join" type="Button" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 74.0
+offset_right = 358.0
+offset_bottom = 119.0
+text = "Join"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 74.0
+offset_right = 580.0
+offset_bottom = 119.0
+text = "Start"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 724.0
+offset_bottom = 50.0
+
+[node name="Label" type="Label" parent="LineEdit"]
+modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+
+[node name="ServerBrowser" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_kuga6")
+serverInfo = ExtResource("5_66t2o")
+
+[node name="BroadcastTimer" type="Timer" parent="ServerBrowser"]
+
+[node name="BoundToListenPort" type="Label" parent="ServerBrowser"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 608.0
+offset_right = 321.0
+offset_bottom = 624.0
+text = "Bound TO listenPort"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="ServerBrowser"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 190.0
+offset_right = 952.0
+offset_bottom = 590.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ServerBrowser/Panel"]
+layout_mode = 0
+offset_right = 950.0
+offset_bottom = 42.0
+
+[node name="ServerInfo" type="HBoxContainer" parent="ServerBrowser/Panel/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_c8fj3")
+
+[node name="Name" type="Label" parent="ServerBrowser/Panel/VBoxContainer2/ServerInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Ip" type="Label" parent="ServerBrowser/Panel/VBoxContainer2/ServerInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ip"
+horizontal_alignment = 1
+
+[node name="PlayerCount" type="Label" parent="ServerBrowser/Panel/VBoxContainer2/ServerInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Players"
+horizontal_alignment = 1
+
+[node name="PlayerCount2" type="Label" parent="ServerBrowser/Panel/VBoxContainer2/ServerInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ServerBrowser/Panel"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 949.0
+offset_bottom = 400.0
+
+[node name="TestButt" type="Button" parent="."]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 98.0
+offset_right = 928.0
+offset_bottom = 152.0
+text = "Add player"
+
+[connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="timeout" from="ServerBrowser/BroadcastTimer" to="ServerBrowser" method="_on_broadcast_timer_timeout"]
+[connection signal="pressed" from="TestButt" to="." method="_on_test_butt_pressed"]

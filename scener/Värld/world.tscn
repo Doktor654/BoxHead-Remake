@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://c67sfpm4a2mwt"]
+
+[ext_resource type="Script" path="res://scener/Värld/SceneManager.gd" id="1_oyk8v"]
+[ext_resource type="PackedScene" uid="uid://xebr12j4w6cg" path="res://scener/Gubbe/gubbe.tscn" id="2_smsqv"]
+[ext_resource type="PackedScene" uid="uid://cjcp212osqofg" path="res://scener/Värld/spawner.tscn" id="3_56b6q"]
+[ext_resource type="PackedScene" uid="uid://clpd7jmtt2gnr" path="res://scener/UI/gui.tscn" id="4_4nto0"]
+[ext_resource type="Texture2D" uid="uid://qhy2qffjg4tp" path="res://textures/world/Tree_Ground_Street.png" id="4_i3l71"]
+[ext_resource type="Texture2D" uid="uid://bulhjh4q06t04" path="res://textures/PlaceHolder/Container_Yellow.png" id="7_03vh5"]
+[ext_resource type="PackedScene" uid="uid://cyx553dkhhugx" path="res://scener/Objects/barrel.tscn" id="7_4b7xi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b470i"]
+size = Vector2(1924, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0olo2"]
+size = Vector2(20, 1124)
+
+[sub_resource type="Environment" id="Environment_y6pvq"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.1
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_oyk8v")
+PlayerScene = ExtResource("2_smsqv")
+metadata/_edit_vertical_guides_ = [1922.0]
+metadata/_edit_horizontal_guides_ = [1082.0]
+
+[node name="Spawner" parent="." instance=ExtResource("3_56b6q")]
+
+[node name="Bakgrund" type="Sprite2D" parent="."]
+texture = ExtResource("4_i3l71")
+centered = false
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="Border1" type="StaticBody2D" parent="Borders"]
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border1"]
+position = Vector2(961, -9)
+shape = SubResource("RectangleShape2D_b470i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/Border1"]
+position = Vector2(961, 1093)
+shape = SubResource("RectangleShape2D_b470i")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders/Border1"]
+position = Vector2(-10, 544)
+shape = SubResource("RectangleShape2D_0olo2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders/Border1"]
+position = Vector2(1931, 544)
+shape = SubResource("RectangleShape2D_0olo2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Gui" parent="CanvasLayer" instance=ExtResource("4_4nto0")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y6pvq")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Barrel" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(331, 228)
+
+[node name="Barrel2" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(409, 361)
+
+[node name="Barrel3" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(478, 126)
+
+[node name="Barrel4" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(122, 77)
+
+[node name="Barrel5" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(610, 461)
+
+[node name="Barrel6" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(910, 473)
+
+[node name="Barrel7" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(1122, 321)
+
+[node name="Barrel8" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(878, 149)
+
+[node name="Barrel9" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(670, 773)
+
+[node name="Barrel10" parent="Objects" instance=ExtResource("7_4b7xi")]
+position = Vector2(174, 713)
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(988, 461)
+
+[node name="1" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(1202, 461)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.139386, 0.192625, 0.323589, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(762, 422)
+texture = ExtResource("7_03vh5")

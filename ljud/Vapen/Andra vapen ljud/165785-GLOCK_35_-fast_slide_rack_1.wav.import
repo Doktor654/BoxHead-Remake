@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eagjldk4rv5p"
+path="res://.godot/imported/165785-GLOCK_35_-fast_slide_rack_1.wav-dfb23c8a797b1c7c3dc0df0b7f8584b9.sample"
+
+[deps]
+
+source_file="res://ljud/Vapen/Andra vapen ljud/165785-GLOCK_35_-fast_slide_rack_1.wav"
+dest_files=["res://.godot/imported/165785-GLOCK_35_-fast_slide_rack_1.wav-dfb23c8a797b1c7c3dc0df0b7f8584b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

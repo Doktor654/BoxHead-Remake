@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://42xtnhsgfcui"]
+
+[ext_resource type="AudioStream" uid="uid://1w52xy55evdo" path="res://ljud/Vapen/Skott/tommy.mp3" id="1_v3b6r"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_mgmei"]
+
+[node name="Tommy_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_v3b6r")
+volume_db = 10.0
+script = ExtResource("2_mgmei")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

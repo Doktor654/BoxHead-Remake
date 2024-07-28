@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://25ya6c3edy36"]
+
+[ext_resource type="AudioStream" uid="uid://bbalu4o8502b2" path="res://ljud/Vapen/Skott/236874-MP5-Single_-Shot_-Interior-03.wav" id="1_y072e"]
+[ext_resource type="Script" path="res://scripts/ljud/pistol_skott.gd" id="2_0i307"]
+
+[node name="MP5_skott" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_y072e")
+volume_db = -10.0
+script = ExtResource("2_0i307")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

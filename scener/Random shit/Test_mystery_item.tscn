@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de1e31v303hcr"]
+
+[ext_resource type="Script" path="res://scripts/Random/Test_mystery_item.gd" id="1_wpw77"]
+
+[node name="Mystery_item" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wpw77")

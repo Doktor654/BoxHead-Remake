@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://76ghcd4covas"]
+
+[ext_resource type="Script" path="res://scener/Värld/SceneManager.gd" id="1_rgl6d"]
+[ext_resource type="Texture2D" uid="uid://bh6t6dvuial43" path="res://textures/background_boxHead.png" id="1_y74ma"]
+[ext_resource type="PackedScene" uid="uid://xebr12j4w6cg" path="res://scener/Gubbe/gubbe.tscn" id="2_ih7y8"]
+[ext_resource type="PackedScene" uid="uid://cjcp212osqofg" path="res://scener/Värld/spawner.tscn" id="3_bi5qn"]
+
+[node name="MultiplayerTestScen" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_rgl6d")
+PlayerScene = ExtResource("2_ih7y8")
+
+[node name="Spawner" parent="." instance=ExtResource("3_bi5qn")]
+
+[node name="Bakgrund" type="Sprite2D" parent="."]
+texture = ExtResource("1_y74ma")
+centered = false
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(834, 389)
+
+[node name="1" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(1048, 389)
+
+[node name="2" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(1052, 577)
+
+[node name="3" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(832, 573)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
